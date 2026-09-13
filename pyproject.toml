@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kuestion"
+version = "0.1.0"
+description = "KDE desktop AI agent where everything is a plugin"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+    "PySide6>=6.11",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-qt>=4.4",
+]
+
+[tool.setuptools]
+packages = ["kernel"]
+
+[tool.pytest.ini_options]
+testpaths = ["kernel/tests", "plugins"]
+addopts = "-q"
