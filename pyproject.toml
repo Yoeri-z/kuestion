@@ -1,0 +1,33 @@
+[project]
+name = "kuestion"
+version = "0.1.0"
+description = "Plugin-based AI chat application."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "httpx>=0.28.1",
+    "markdown-it-py>=3.0",
+    "mdit-py-plugins>=0.5",
+    "pyside6>=6.11.2",
+]
+
+[project.scripts]
+kuestion = "kuestion.__main__:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["kernel", "kuestion"]
+exclude = ["**/tests", "**/tests/**"]
+
+[tool.pytest.ini_options]
+testpaths = ["kernel", "kuestion", "plugins", "examples"]
+pythonpath = [".", "examples"]
+consider_namespace_packages = true

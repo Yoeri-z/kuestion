@@ -1,0 +1,148 @@
+/* Palette-driven styles: every value below is injected from Qt's live
+   QPalette by ChatWidget (window.applyPalette), so the log matches the rest of
+   the application's widgets. The values in :root are only light fallbacks. */
+
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --bubble: #f7f7f7;
+  --border: #b8b8b8;
+  --muted: #b8b8b8;
+  --accent: #308cc6;
+  --accent-fg: #ffffff;
+  --code-bg: #efefef;
+  --button-bg: #efefef;
+  --button-fg: #000000;
+  color-scheme: light;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#conversation {
+  padding: 14px 18px 24px;
+}
+
+.block {
+  margin: 0 0 18px;
+}
+
+.block .role {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.block.user .content {
+  background: var(--bubble);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.block .content {
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.block .content > *:first-child {
+  margin-top: 0;
+}
+
+.block .content > *:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--accent);
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  margin: 0;
+}
+
+pre code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12.5px;
+  background: transparent;
+  padding: 0;
+  white-space: pre;
+}
+
+code {
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 1px 4px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12.5px;
+}
+
+.code-block {
+  position: relative;
+  margin: 8px 0;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 1;
+  font-size: 11px;
+  color: var(--button-fg);
+  background: var(--button-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px 8px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.15s ease;
+}
+
+.code-block:hover .copy-btn {
+  opacity: 1;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+}
+
+blockquote {
+  margin: 8px 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+}
+
+.math-display {
+  margin: 8px 0;
+  overflow-x: auto;
+}
+
+.math-error {
+  color: var(--muted);
+  font-family: monospace;
+}
